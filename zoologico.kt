@@ -1,3 +1,5 @@
+import java.util.Scanner
+
 data class Animal(
     val apelido: String,
     val reino: String,
@@ -40,39 +42,41 @@ class Zoologico {
 
 fun main() {
     val zoologico = Zoologico()
+    val scanner = Scanner(System.`in`)
 
-    val leao = Animal(
-        apelido = "Simba",
-        reino = "Animalia",
-        filo = "Chordata",
-        classe = "Mammalia",
-        ordem = "Carnivora",
-        familia = "Felidae",
-        genero = "Panthera",
-        especie = "Panthera leo",
-        origem = "África",
-        dieta = "Carnívoro",
-        tipoGaiola = "Savana",
-        localizacao = "Setor A - Gaiola 5"
-    )
+    while (true) {
+        println("Deseja cadastrar um novo animal? (s/n)")
+        val resposta = scanner.nextLine()
+        if (resposta.lowercase() != "s") break
 
-    val peixe = Animal(
-        apelido = "Nemo",
-        reino = "Animalia",
-        filo = "Chordata",
-        classe = "Actinopterygii",
-        ordem = "Perciformes",
-        familia = "Pomacentridae",
-        genero = "Amphiprion",
-        especie = "Amphiprion ocellaris",
-        origem = "Oceano Pacífico",
-        dieta = "Onívoro",
-        tipoGaiola = "Aquário",
-        localizacao = "Setor B - Tanque 3"
-    )
+        println("Digite o apelido do animal:")
+        val apelido = scanner.nextLine()
+        println("Digite o reino do animal:")
+        val reino = scanner.nextLine()
+        println("Digite o filo do animal:")
+        val filo = scanner.nextLine()
+        println("Digite a classe do animal:")
+        val classe = scanner.nextLine()
+        println("Digite a ordem do animal:")
+        val ordem = scanner.nextLine()
+        println("Digite a família do animal:")
+        val familia = scanner.nextLine()
+        println("Digite o gênero do animal:")
+        val genero = scanner.nextLine()
+        println("Digite a espécie do animal:")
+        val especie = scanner.nextLine()
+        println("Digite a origem do animal:")
+        val origem = scanner.nextLine()
+        println("Digite a dieta do animal:")
+        val dieta = scanner.nextLine()
+        println("Digite o tipo de gaiola do animal:")
+        val tipoGaiola = scanner.nextLine()
+        println("Digite a localização do animal:")
+        val localizacao = scanner.nextLine()
 
-    zoologico.cadastrarAnimal(leao)
-    zoologico.cadastrarAnimal(peixe)
+        val animal = Animal(apelido, reino, filo, classe, ordem, familia, genero, especie, origem, dieta, tipoGaiola, localizacao)
+        zoologico.cadastrarAnimal(animal)
+    }
 
     zoologico.listarAnimais()
 }
